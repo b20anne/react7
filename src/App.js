@@ -17,13 +17,14 @@ class App extends React.Component {
     this.state = {
       quote: Simpson
     };
-    // this.getSimpsonQuote = this.getSimpsonQuote.bind(this);
+    this.getSimpsonQuote = this.getSimpsonQuote.bind(this);
   }
 
   getSimpsonQuote() {
-    axios.get("https://thesimpsonsquoteapi.glitch.me/quotes")
+    axios.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=6")
       .then(response => response.data)
-      .then(data => { this.setState({quote: data[0],
+      .then(data => { 
+        this.setState({quote: data[0],
          });
       });
   }
